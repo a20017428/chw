@@ -7,5 +7,6 @@ int main(){
     printf("½Ğ¿é¤J¼Æ¦r:");
     scanf("%d", &n);
     printf("|%d|=%d\n", n, n>0 ? n:n*(-1));
+	system("pause");
     return 0;
 }

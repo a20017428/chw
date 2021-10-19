@@ -2,9 +2,9 @@
 #include <stdlib.h>
 
 int main(){
-
+	void sort(int[], int);
     int a[3];
-    printf("請輸入三角形的三邊長:\n");
+    printf("請輸入三角形的三邊長:");
     scanf("%d %d %d", &a[0], &a[1], &a[2]);
     sort(a, sizeof(a)/sizeof(a[0]));
     if(a[0]+a[1]>a[2])

@@ -21,7 +21,7 @@ int main(){
         }
     }
 
-    printf("實領薪資=%.1lf元", sum);
+    printf("實領薪資=%.1lf元\n", sum);
 
     system("pause");
 

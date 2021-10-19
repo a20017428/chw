@@ -5,11 +5,11 @@ int main(){
 	void swap(int*, int*);
 	void sort(int[], int);
 	int a[3];
-    printf("請輸入三角形的三邊長：\n");
+    printf("請輸入三角形的三邊長：");
     scanf("%d %d %d", &a[0], &a[1], &a[2]);
     sort(a, sizeof(a)/sizeof(a[0]));
     printf("計算結果為\n");
-    if(a[0]+a[1]<a[2])
+    if(a[0]+a[1]<=a[2])
         printf("非三角形");
     else if(a[0]==a[1] && a[1]==a[2])
         printf("正三角形");
