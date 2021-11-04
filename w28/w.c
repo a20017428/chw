@@ -12,31 +12,37 @@ void creat(queue *, int);
 int isEmptyQ(queue *);
 int isFullQ(queue *);
 int AddQ(queue *, int);
-char DeleteQ(queue *);
+int DeleteQ(queue *);
 
 int main(){
     queue student;
     creat(&student, MAX);
-    int number[MAX] = {0};
+
+    char number[MAX] = {'\0'};
     int order[MAX] = {0};
+
+    char *token;
+
     int i = 0, j = 0;
+    int k;
 
     while(1){
-        printf("type \"enter\" then type \"ctrl + z\" when the input is complete\n");
         printf("座號: ");
-        while(scanf("%d", &number[i])!=EOF){
-            AddQ(&student, number[i++]);
+        gets(number);
+
+        token = strtok(number," ");
+        while (token != NULL){
+            AddQ(&student, strtol(token, NULL, 10));
+            token = strtok (NULL, " ");
         }
 
-        while(!isEmptyQ(&student)){
+        while(!isEmptyQ(&student))
             order[j++] = DeleteQ(&student);
-        }
 
-        printf("順序: ");
-        int k = 0;
-        while(order[k]!=0)
-            printf("%d ", order[k++]);
-        printf("\npress \"ctrl + c\" to EXIT\n\n");
+        printf("順序為: ");
+        for(k = 0; order[k]!=0; ++k)
+            printf("%d ", order[k]);
+        printf("\n");
     }
 
     system("pause");
@@ -67,7 +73,7 @@ int AddQ(queue *q, int t){
     }
 }
 
-char DeleteQ(queue *q){
+int DeleteQ(queue *q){
     int tmp = q->array[++q->front];
     if(q->front!=-1){ //把所有資料前移
         int i;
